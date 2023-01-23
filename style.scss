@@ -7,7 +7,7 @@
 
 $presentation-heading-color: #000080;
 $presentation-title-slide-text-align: left;
-$presentation-font-smaller:0.85;
+$presentation-font-smaller:0.75;
 
 $main-accent: #000080;
 $main-highlight: #FFA000;
@@ -36,7 +36,7 @@ h3 {
 
 
 .inverse, .inverse h2, .inverse h1 {
-  color: white !important;
+  color: $main-highlight !important;
 }
 
 li::marker {

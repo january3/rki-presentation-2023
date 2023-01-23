@@ -1,6 +1,6 @@
 ---
 title: "Reproducible science:"
-subtitle: "a bioinformatic service perspective"
+subtitle: "A bioinformatic service perspective"
 author: 
   - name: "January Weiner"
     orcid: 0000-0003-1438-7819
@@ -27,9 +27,9 @@ format:
 
  * Predicting tuberculosis (TB) onset in patients
  * Operating an RNA-Seq pipeline at the CUBI
- * 
+ * How not to do gene set enrichments
 
-## My principles
+## Core principles
 
 ::: {.incremental}
  * Reproducibility: the analysis should be reproducible with minimal effort
@@ -43,158 +43,116 @@ format:
 
 ## Predicting the onset of TB
 
+![](images/tb_scheme.png)
+
+## Predicting the onset of TB
+
+![](images/tb_01.png)
+
 ## Predicting the onset of TB
 
 **Key papers:**
 
-**Weiner 3rd J**, Maertzdorf J, Sutherland JS, Duffy FJ, Thompson E, Suliman S,
-McEwen G, Thiel B, Parida SK, Zyla J, Hanekom WA. Metabolite changes in
-blood predict the onset of tuberculosis. Nature communications. 2018 Dec
+**Weiner 3rd J**, <span style="color:#FFA000">Maertzdorf J</span>, Sutherland JS, Duffy FJ, Thompson E, Suliman S,
+<span style="color:#FFA000">McEwen G</span>, Thiel B, Parida SK, <span style="color:#FFA000">Zyla J</span>, Hanekom WA. Metabolite changes in
+blood predict the onset of tuberculosis. *Nature Communications*. 2018 Dec
 6;9(1):5208.
 
 Suliman S, Thompson EG, Sutherland J, **Weiner 3rd J**, Ota MO, Shankar S,
 Penn-Nicholson A, Thiel B, Erasmus M, Maertzdorf J, Duffy FJ. Four-gene
-pan-African blood signature predicts progression to tuberculosis. American
-journal of respiratory and critical care medicine. 2018 May
+pan-African blood signature predicts progression to tuberculosis. *American
+Journal of Respiratory and Critical Care Medicine*. 2018 May
 1;197(9):1198-208.
 
 Duffy FJ, **Weiner 3rd J**, Hansen S, Tabb DL, Suliman S, Thompson E,
 Maertzdorf J, Shankar S, Tromp G, Parida S, Dover D. Immunometabolic
 signatures predict risk of progression to active tuberculosis and disease
-outcome. Frontiers in immunology. 2019 Mar 22;10:527.
+outcome. *Frontiers in Immunology*. 2019 Mar 22;10:527.
 
-## Slide 1 
-
-To compile, type `quarto render template.qmd`
-
-Make sure you have Quarto 1.2 installed from
-[here](https://quarto.org/docs/download/prerelease.html).
-
-::: {.aside}
-This aside note can be used to add citations or notes
-:::
-
-## Multicolumn slide
-
-:::: {.columns}
-
-::: {.column width="40%" .fragment}
-### Left column title
-
-Left column...
-:::
-
-::: {.column width="60%" .fragment}
-### Right column title
-
-Right column (60%)...
-
-(adding `.fragment` causes the contents to be displayed in steps)
-:::
-
-::::
-
-
-
-# Part II separator slide {.inverse background-color="$main-accent"}
-
-## Simple numbered and unnumbered lists
-
-:::: {.columns}
-
-::: {.column width="50%"}
- * One
- * Two
-:::
-
-::: {.column width="50%"}
- 1. One
- 2. Two
-:::
-
-::::
-
-## Incremental list
+## Implementing the core principles:
 
 ::: {.incremental}
- - Item 1
- - Item 2
- - Item 3
+ * Introduced blinded predictions for the validation set
+ * All data published
+ * Results, paper and supplementary materials generated and written completely in R markdown, available from github
+:::
+
+## Running an RNA-Seq pipeline at CUBI
+
+![](images/pipeline_scheme.png)
+
+## Running an RNA-Seq pipeline at CUBI
+
+![](images/seapiper.gif)
+
+
+## Implementing the core principles:
+
+::: {.incremental}
+ * Reproducibility:
+   - keeping track of all analyses
+   - –,,– software versions
+   - software environments preserved with conda
+   - data and meta-data stored in SODAR "forever"
+ * Accountability ensured by providing custom interactive interfaces
+   $\rightarrow$ read only mode! Not for making the analyses
+ * Interpretability 
+   - frequent updates and discussions
+   - incorporating research hypotheses in the pipeline
+   - collaborations rather than service
+:::
+
+## How not to do gene set enrichments
+
+ * two groups of patients: G1 and G2
+ * two conditions: COVID vs controls
+ * do the two groups react differently to COVID?
+
+## How not to do gene set enrichments
+
+![](images/venn_01.jpg)
+
+::: {.aside}
+Weiner J, Obermayer B, Beule D. Venn diagrams may indicate erroneous statistical reasoning in transcriptomics. Frontiers in Genetics. 2022 Apr 14;13:818683.
 :::
 
 
-## Incremental contents
+## How not to do gene set enrichments
 
-First part
+![](images/venn_02.jpg)
 
-. . .
-
-Second part
-
-
----
-
-This is a slide without a title (use the dashes to separate)
-
-## Transitions {transition="zoom"}
-
-Define them in the YAML header or like here, in the slide title.
-
-Types: none, fade, slide, convex, concave, zoom
-
-
-## Code 
-
-
-```{r}
-#| echo: true
-#| output-location: column-fragment
-#| label: fig-sample
-#| fig-cap: A dumb plot
-plot(1:10)
-```
-
-::: {.callout-tip}
-Ctrl-click on the image to zoom. And here is a `r pi` for you.
+::: {.aside}
+Weiner J, Obermayer B, Beule D. Venn diagrams may indicate erroneous statistical reasoning in transcriptomics. Frontiers in Genetics. 2022 Apr 14;13:818683.
 :::
 
-## Code
 
-There are many customization options for the code. For example, you can
-highlight (and even animate) certain lines of code:
+## How not to do gene set enrichments
 
-
-```{r}
-#| code-line-numbers: "|1|2|3|"
-#| echo: true
-a <- rnorm(10)
-b <- rnorm(10) + a
-c <- a + b * rnorm(10)
-```
-
-You can also specify where precisely should the output of the code go:
-below the code (default), on the next slide, on a right-hand column...
+ * > 25% of papers on transcriptomics with a venn diagram fall for this
+   fallacy
+ * correct interpretation: interactions, disco score (Domaszewska et al.
+   and Weiner, 2017)
+ * paper sources as rmarkdown available from github
+ 
+::: {.aside}
+Weiner J, Obermayer B, Beule D. Venn diagrams may indicate erroneous statistical reasoning in transcriptomics. Frontiers in Genetics. 2022 Apr 14;13:818683.
+:::
 
 
-
-
-## Thank you {.inverse background-color="#70ADC1"}
+## Thank you
 
 :::: {.columns}
 
 ::: {.column width="40%"}
-Acknowledgements
 
- - N.N.
- - Y.Y.
+ * Personal github: https://github.com/january3/
+ * CUBI github: https://github.com/bihealth/
+ * Scholar profile: http://tiny.cc/y8o3vz
  
 :::
 
 ::: {.column width="40%"}
-Sources
 
- - Source 1
- - Source 2
 :::
 
 ::: {.column width="20%"}
@@ -203,12 +161,9 @@ Sources
 #| fig-width: 5
 #| fig-height: 5
 library(qrcode)
-plot(qr_code("https://google.com"))
+plot(qr_code("https://github.com/january3/rki-presentation"))
 ```
-
-
-
 :::
 
-
 ::::
+
