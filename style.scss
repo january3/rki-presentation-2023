@@ -1,0 +1,48 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);
+
+// fonts
+//$font-family-sans-serif: "Fira Sans", sans-serif !default;
+
+$presentation-heading-color: #000080;
+$presentation-title-slide-text-align: left;
+$presentation-font-smaller:0.85;
+
+$main-accent: #000080;
+$main-highlight: #FFA000;
+$body-bg: #FFFFFF;
+$body-color: #4c626c;
+$link-color: $main-accent;
+$code-color: #70ADC1;
+
+/*-- scss:rules --*/
+
+.title {
+  color: $main-accent !important;
+}
+
+.quarto-title-author {
+  color: $main-highlight !important;
+}
+
+#title-slide {
+  transform: translate(-10%, -50%);
+}
+
+h3 {
+  color: $main-accent !important;
+}
+
+
+.inverse, .inverse h2, .inverse h1 {
+  color: white !important;
+}
+
+li::marker {
+  color: $main-highlight !important;
+}
+
+.reveal .slide-number > a[href*='title-slide'] {
+  display: none;
+}
